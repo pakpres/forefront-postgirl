@@ -11,8 +11,8 @@ const defaultRoute = (app, mailer) => {
         // run send function
         const content = createMailContent(req.body.receiver, req.body.subject, req.body.mailType, req.body.props);
         mailer.sendMail(content, function (error, info) {
-            if (error) res.status(400).send(error);
-            else res.status(200).send('Email sent: ' + info.response);
+            if (error) return res.status(400).send(error);
+            else return res.status(200).send('Email sent: ' + info.response);
         });
     });
 }
