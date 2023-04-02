@@ -1,5 +1,5 @@
-const APP_ALLOW_LIST = process.env.APP_ALLOW_LIST && ["https://olympus-dev.glitch.me"];
+const APP_ORIGIN = process.env.APP_ORIGIN.split(' ') || ["http://localhost:8001"];
 
 module.exports = {
-    ALLOW_LIST: APP_ALLOW_LIST
+    ALLOW_LIST: APP_ORIGIN
 }
