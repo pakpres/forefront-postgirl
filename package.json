@@ -19,5 +19,5 @@
   },
   "author": "",
   "license": "ISC",
-  "description": "Emailer for coolie"
+  "description": "Emailer service mainly to send email that depends on the configurated mail type "
 }

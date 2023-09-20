@@ -1,6 +1,6 @@
 # Postgirl
 
-This is the main emailer service mainly for Coolie emailing purpose
+This is the main emailer service mainly for emailing purpose
 Note that this service can be used dynamically
 This service is also used for handling user data
 
