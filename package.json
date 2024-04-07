@@ -5,6 +5,7 @@
     "csurf": "^1.11.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "httpolyglot": "^0.1.2",
     "jsonwebtoken": "^9.0.0",
     "morgan": "^1.10.0",
     "nodemailer": "^6.8.0",
