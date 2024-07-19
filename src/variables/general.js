@@ -1,3 +1,7 @@
+const {
+  APP_CLIENT_BASE_URL,
+} = require("../../config/environment");
+
 const SEND_OTP = "SEND_OTP";
 const SEND_NEWSLETTER = "SEND_NEWSLETTER";
 const SEND_EMAIL_EXISTENCE = "SEND_EMAIL_EXISTENCE";
@@ -48,7 +52,7 @@ exports.MAIL_CONTENT = [
       return (
         "Hello " +
         props.fullName +
-        ` this is the link to the new password form you've requested, ${process.env.CLIENT_BASE_URL}/?recoveryToken=${props.token}`
+        ` this is the link to the new password form you've requested, ${APP_CLIENT_BASE_URL}/?recoveryToken=${props.token}`
       );
     },
   },

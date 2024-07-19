@@ -1,5 +1,12 @@
 const cors = require("cors");
 const { CORSConfiguration } = require("./connection");
+const {
+  APP_ENABLE_LOCAL_HTTPS,
+  APP_KEY_PATH,
+  APP_CERT_PATH,
+  APP_EMAIL_USER,
+  APP_EMAIL_PASS,
+} = require("../../config/environment");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const fs = require("fs");
@@ -8,12 +15,6 @@ const https = require("httpolyglot");
 var nodemailer = require("nodemailer");
 
 const AppConfig = (app, express) => {
-  // env
-  const APP_ENABLE_LOCAL_HTTPS =
-    process.env.APP_ENABLE_LOCAL_HTTPS;
-  const APP_CERT_PATH = process.env.APP_CERT_PATH;
-  const APP_KEY_PATH = process.env.APP_KEY_PATH;
-
   // Express app config
   app.locals.pluralize = require("pluralize");
   app.use(logger("dev"));
@@ -53,8 +54,8 @@ const InitNodeMailer = () => {
     secure: true,
     debug: true,
     auth: {
-      user: process.env.APP_EMAIL_USER,
-      pass: process.env.APP_EMAIL_PASS,
+      user: APP_EMAIL_USER,
+      pass: APP_EMAIL_PASS,
     },
   });
 

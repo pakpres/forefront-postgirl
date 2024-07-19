@@ -1,4 +1,3 @@
-require("dotenv").config();
 const express = require("express");
 const { defaultRoute } = require("./src/routes/default");
 const {

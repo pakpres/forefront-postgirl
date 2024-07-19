@@ -1,3 +1,6 @@
+const {
+  APP_EMAIL_USER,
+} = require("../../config/environment");
 const { MAIL_CONTENT } = require("../variables/general");
 
 function createMailContent(
@@ -7,7 +10,7 @@ function createMailContent(
   props
 ) {
   return (content = {
-    from: process.env.APP_EMAIL_USER,
+    from: APP_EMAIL_USER,
     to: receiver,
     subject: subject,
     text: generateMailContent(mailType).content(props),
