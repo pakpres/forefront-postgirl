@@ -1,5 +1,5 @@
 const {
-  APP_CLIENT_BASE_URL,
+  APP_RECOVERY_PASSWORD_REDIRECT_URL,
 } = require("../../config/environment");
 
 const SEND_OTP = "SEND_OTP";
@@ -52,7 +52,7 @@ exports.MAIL_CONTENT = [
       return (
         "Hello " +
         props.fullName +
-        ` this is the link to the new password form you've requested, ${APP_CLIENT_BASE_URL}/?recoveryToken=${props.token}`
+        ` this is the link to the new password form you've requested, ${APP_RECOVERY_PASSWORD_REDIRECT_URL}?recoveryToken=${props.token}`
       );
     },
   },
