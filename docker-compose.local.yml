@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  forefront-postgirl:
+    build:
+      context: .
+      dockerfile: Dockerfile.local
+    ports:
+      - "8002:8002"
+    volumes:
+      - .:/app
+      - /app/node_modules

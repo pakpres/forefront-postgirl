@@ -14,10 +14,10 @@ RUN npm install
 COPY . .
 
 # Set environment variables from .env.development
-ENV $(cat .env.staging | xargs)
+ENV $(cat .env | xargs)
 
 # Expose the port your app will run on
-EXPOSE 8020
+EXPOSE 8002
 
 # Command to run your application
 CMD ["node", "index.js"]
