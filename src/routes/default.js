@@ -5,6 +5,10 @@ const {
 } = require("../variables/responseMessage");
 
 const defaultRoute = (app, mailer) => {
+  app.get(`/v1/`, async (req, res) => {
+    return res.sendStatus(200);
+  });
+
   app.post(`/v1/send`, async (req, res) => {
     // check query param availability
     if (!req.body) return res.sendStatus(400);
