@@ -42,7 +42,7 @@ RUN npm i --only=production
 COPY --from=builder /app/dist ./dist
 
 # Open desired port
-EXPOSE 7001
+EXPOSE 8002
 
 # Use js files to run the application
 ENTRYPOINT ["node", "./dist/index.js"]
