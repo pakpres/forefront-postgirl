@@ -57,6 +57,9 @@ const InitNodeMailer = () => {
       user: APP_EMAIL_USER,
       pass: APP_EMAIL_PASS,
     },
+    tls: {
+      rejectUnauthorized: false,
+    },
   });
 
   return mailer;
