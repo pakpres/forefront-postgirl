@@ -16,8 +16,6 @@
   "version": "0.1.1",
   "main": "index.js",
   "scripts": {
-    "build": "echo 'Building the project...' && tsc",
-    "start-prod": "node ./dist/index.js",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
