@@ -19,7 +19,9 @@ const mailer = InitNodeMailer();
 // Init Routes
 defaultRoute(routes, mailer);
 
+// Assign all routes
 if (APP_WITH_PREFIX) app.use("/pg", routes);
+else app.use("/", routes);
 
 // Server listen
 const port = process.env.PORT || 6969;
