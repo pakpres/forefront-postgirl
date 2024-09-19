@@ -9,6 +9,7 @@ const {
   APP_STATE,
   APP_PORT,
 } = require("./config/environment");
+const { PROD } = require("./src/variables/general");
 const expressApp = express();
 
 // Init App configurations
