@@ -4,12 +4,7 @@ const {
   AppConfig,
   InitNodeMailer,
 } = require("./src/config");
-const {
-  APP_WITH_PREFIX,
-  APP_STATE,
-  APP_PORT,
-} = require("./config/environment");
-const { PROD } = require("./src/variables/general");
+const { APP_WITH_PREFIX } = require("./config/environment");
 const expressApp = express();
 
 // Init App configurations
@@ -29,13 +24,7 @@ if (APP_WITH_PREFIX) app.use("/pg", routes);
 else app.use("/", routes);
 
 // Server listen
-const defaultPort = 6000;
-const port =
-  APP_STATE === PROD ? 0 : APP_PORT || defaultPort;
-
+const port = process.env.PORT || 6000;
 server.listen(port, () => {
-  const actualPort = server.address().port;
-  console.log(
-    `Signaling Server is up and running on ${actualPort} ...`
-  );
+  console.log(`Server is up and running on ${port} ...`);
 });
