@@ -4,7 +4,11 @@ const {
   AppConfig,
   InitNodeMailer,
 } = require("./src/config");
-const { APP_WITH_PREFIX } = require("./config/environment");
+const {
+  APP_WITH_PREFIX,
+  APP_STATE,
+  APP_PORT,
+} = require("./config/environment");
 const expressApp = express();
 
 // Init App configurations

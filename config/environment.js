@@ -3,7 +3,7 @@ require("dotenv").config({
   path: path.resolve(__dirname, "../.env"),
 });
 
-exports.APP_PORT = process.env.PORT || 8001;
+exports.APP_PORT = process.env.PORT || 6000;
 exports.APP_STATE = process.env.APP_STATE || "DEV";
 exports.APP_WITH_PREFIX =
   process.env.APP_WITH_PREFIX === "true" ||
@@ -22,7 +22,7 @@ exports.APP_ENABLE_LOCAL_HTTPS =
 
 exports.APP_OLYMPUS_SERVICE_BASE_URL =
   process.env.OLYMPUS_SERVICE_BASE_URL ||
-  "http://localhost:8001";
+  "http://localhost:8000";
 exports.APP_RECOVERY_PASSWORD_REDIRECT_URL =
   process.env.APP_RECOVERY_PASSWORD_REDIRECT_URL ||
   "http://localhost:3000";
