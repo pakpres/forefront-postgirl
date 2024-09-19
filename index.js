@@ -24,7 +24,13 @@ if (APP_WITH_PREFIX) app.use("/pg", routes);
 else app.use("/", routes);
 
 // Server listen
-const port = process.env.PORT || 6969;
+const defaultPort = 6000;
+const port =
+  APP_STATE === PROD ? 0 : APP_PORT || defaultPort;
+
 server.listen(port, () => {
-  console.log(`Server is up and running on ${port} ...`);
+  const actualPort = server.address().port;
+  console.log(
+    `Signaling Server is up and running on ${actualPort} ...`
+  );
 });
