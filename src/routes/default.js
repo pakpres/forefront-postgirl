@@ -10,25 +10,39 @@ const defaultRoute = (app, mailer) => {
   });
 
   app.post(`/v1/send`, async (req, res) => {
-    // check query param availability
-    if (!req.body) return res.sendStatus(400);
-    if (!validateEmail(req.body.receiver))
-      return res.status(400).send(INVALID_EMAIL);
+    try {
+      // Validate the reciever email
+      if (!validateEmail(req.body.receiver))
+        return res.status(400).send(INVALID_EMAIL);
 
-    // run send function
-    const content = createMailContent(
-      req.body.receiver,
-      req.body.subject,
-      req.body.mailType,
-      req.body.props
-    );
-    mailer.sendMail(content, function (error, info) {
-      if (error) return res.status(400).send(error);
-      else
-        return res
-          .status(200)
-          .send("Email sent: " + info.response);
-    });
+      // Run send function
+      const content = createMailContent(
+        req.body.receiver,
+        req.body.subject,
+        req.body.mailType,
+        req.body.props
+      );
+
+      // Send email and handle errors
+      mailer.sendMail(content, function (error, info) {
+        if (error) {
+          throw new Error(
+            `Failed to send email: ${error.message}`
+          );
+        } else {
+          return res.status(200).send({
+            message: "Email sent",
+            response: info.response,
+          });
+        }
+      });
+    } catch (err) {
+      console.error("An error occurred: ", err);
+      return res.status(500).send({
+        message: "Internal Server Error",
+        response: err.message,
+      });
+    }
   });
 };
 
