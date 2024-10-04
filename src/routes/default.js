@@ -24,18 +24,21 @@ const defaultRoute = (app, mailer) => {
       );
 
       // Send email and handle errors
-      mailer.sendMail(content, function (error, info) {
-        if (error) {
-          throw new Error(
-            `Failed to send email: ${error.message}`
-          );
-        } else {
-          return res.status(200).send({
-            message: "Email sent",
-            response: info.response,
-          });
+      await mailer.sendMail(
+        content,
+        function (error, info) {
+          if (error) {
+            throw new Error(
+              `Failed to send email: ${error.message}`
+            );
+          } else {
+            return res.status(200).send({
+              message: "Email sent",
+              response: info.response,
+            });
+          }
         }
-      });
+      );
     } catch (err) {
       console.error("An error occurred: ", err);
       return res.status(500).send({
