@@ -23,14 +23,11 @@ services:
       - NODE_ENV=production
     env_file:
       - .env.production
-    deploy:
-      mode: replicated
-      replicas: 3
-    restart: always
+    restart: on-failure:0
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.forefront-postgirl.rule=Host(`api.yourdomain.com`) && PathPrefix(`/po`)"
-      - "traefik.http.services.forefront-postgirl.loadbalancer.server.port=8002"
+      - "traefik.http.routers.forefront-postgirl.rule=Host(`pintrail.app`) && PathPrefix(`/pg`)"
+      - "traefik.http.services.forefront-postgirl.loadbalancer.server.port=6000"
     networks:
       - web
 networks:
