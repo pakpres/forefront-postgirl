@@ -18,11 +18,14 @@ services:
 
   forefront-postgirl:
     build:
-      context: .
+      context: ../forefront-postgirl
+      dockerfile: Dockerfile.production
+      args:
+        progress: plain
     environment:
       - NODE_ENV=production
     env_file:
-      - .env.production
+      - ../forefront-postgirl/.env.production
     restart: on-failure:0
     labels:
       - "traefik.enable=true"
