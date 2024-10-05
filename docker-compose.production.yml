@@ -9,6 +9,8 @@ services:
       - NODE_ENV=production
     env_file:
       - ../forefront-postgirl/.env.production
+    ports:
+      - 6000:6000
     restart: on-failure:0
     networks:
       - web
