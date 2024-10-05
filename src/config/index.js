@@ -51,8 +51,8 @@ const InitNodeMailer = () => {
   const mailer = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
-    secure: false,
-    debug: false,
+    secure: true,
+    debug: true,
     auth: {
       user: APP_EMAIL_USER,
       pass: APP_EMAIL_PASS,
