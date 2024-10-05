@@ -1,14 +1,14 @@
 services:
   forefront-postgirl:
     build:
-      context: ../forefront-postgirl
+      context: .
       dockerfile: Dockerfile.production
       args:
         progress: plain
     environment:
       - NODE_ENV=production
     env_file:
-      - ../forefront-postgirl/.env.production
+      - .env.production
     ports:
       - 6000:6000
     restart: on-failure:0
