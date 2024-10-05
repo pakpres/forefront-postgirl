@@ -47,6 +47,9 @@ const AppConfig = (app, express) => {
   return { server, app };
 };
 
+console.log(
+  `Creating SMTP mailer with email: ${APP_EMAIL_USER}`
+);
 const InitNodeMailer = () => {
   const mailer = nodemailer.createTransport({
     host: "smtp.gmail.com",
