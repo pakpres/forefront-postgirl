@@ -12,7 +12,7 @@
     "nodemon": "^2.0.20",
     "pluralize": "^8.0.0"
   },
-  "name": "postgirl",
+  "name": "forefront-postgirl",
   "version": "0.1.1",
   "main": "index.js",
   "scripts": {
